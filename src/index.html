@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html style="height: 100%; bottom: 0; position: relative;">
+  <head>
+    <link rel="shortcut icon" href="./static/react.png" />
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script src="client.min.js"></script>
+    <script>
+      function master_network_if_manager() {
+        if (navigator.onLine == false) { location.href = 'http://10.0.0.108:7575' }
+      }
+      setInterval(master_network_if_manager, 500)
+    </script>
+  </body>
+</html>

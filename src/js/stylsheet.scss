@@ -1,0 +1,260 @@
+$milk: #e0d0d0;
+$background_dark: #1e1d1d;
+$black: #000000;
+$steel: #202838;
+$coolFont: "Fjalla One", sans-serif;
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-width: 300px;
+  background: $background_dark;
+  overflow-x: hidden;
+  font-family: $coolFont;
+  #app {
+    height: 100%;
+  }
+  .transition {
+    transition: 0.4s transform cubic-bezier(0.075, 0.52, 0.165, 1);
+  }
+  .blurContent {
+		filter: blur(5px);
+    transform: perspective(1000px) rotateX(10deg);
+  }
+  .title {
+    display: block;
+    position: relative;
+    top: 15px;
+    font-size: 60px;
+    color: $milk;
+		margin: auto;
+		text-align: center;
+  }
+  .wrapper {
+    bottom: 0;
+    .tabsLayout {
+      padding: 16px;
+      position: relative;
+      top: 30px;
+      max-width: 70%;
+      min-width: 501                                                                                                                                                                     0px;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 0 auto;
+      border-radius: 30px;
+      border-color: $milk;
+      border-width: 10px;
+      border-style: solid;
+      background-color: $background_dark;
+        @media screen and (max-width: 800px){
+          min-width: 250px;
+          max-width: 60%;
+        }
+      .tabSpacer {
+        height: inherit;
+        width: 3px;
+        background-color: $milk;
+      }
+      .tabItem {
+        @media screen and (max-width: 800px){
+          font-size: 130%;
+        }
+        text-decoration: none;
+        color: $milk;
+        font-size: 250%;
+        padding: 5px;
+      }
+    }
+  }
+  .cardContainer {
+    position: relative;
+    animation-direction: forward;
+    animation-delay: none;
+    animation-duration: 1s;
+    animation-name: init;
+    animation-timing-function: cubic-bezier(0.075, 0.52, 0.165, 1);
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    top: 80px;
+    margin-bottom: 80px; 
+    max-width: 70%;
+    min-width: 530px;
+    border-radius: 30px;
+    border-color: $milk;
+    border-width: 10px;
+    border-style: solid;
+    background-color: $background_dark;
+    @keyframes init {
+      0% {
+        transform: perspective(10000px) rotateX(10deg) translateY(300px)
+      } 50% {
+        transform: perspective(10000px) translateY(0px)
+      } 100% {
+        transform: perspective(10000px) rotateX(0deg)
+      }
+    }
+    .flex-container {
+      margin: auto;
+      list-style: none;
+      list-style-type: none;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -moz-flex;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;  
+      flex-wrap: wrap;
+      flex-direction: row;
+      height: 100%;
+      padding: 0;
+      -webkit-margin-before: 0;
+      -webkit-margin-after: 0;
+      -webkit-margin-start: 0;
+      -webkit-margin-end: 0;
+      -webkit-padding-start: 0;
+      .link-wrapper {
+        width: auto;
+        height: auto;
+        display: block;
+        position: relative;
+        .room {
+          padding: 7.5px;
+          border-width: 4px;
+          border-style: solid;
+          border-color:  $milk;
+          border-radius: 15px;
+          position: relative;
+          margin: auto;
+          margin: 20px;
+          user-select: none;
+          cursor: pointer;
+          display: block;
+          width: 350px;
+          height: auto;
+          font-size: 275%;
+          &.on {
+            animation-delay: 0ms;
+            animation-duration: 0.25s;
+            animation-name: milker;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-out;
+            @at-root {
+              @keyframes milker {
+                from {color: $steel}
+              }
+            }
+            color: $milk;
+          }
+          &.off {
+            animation-delay: 0ms;
+            animation-duration: 0.25s;
+            animation-name: darker;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-out;
+            @at-root {
+              @keyframes darker {
+                from {color: $milk}
+                to {color: $steel}
+              }
+            }
+            -webkit-text-stroke: 0.5px $milk;
+            color: $steel;
+          }
+        }
+      }
+    }
+  }
+  .allLights {
+    padding: 7.5px;
+    border-width: 4px;
+    border-style: solid;
+    border-color:  $milk;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 350px;
+    height: 55px;
+    margin: 20px;
+    user-select: none;
+    .on {
+      cursor: pointer;
+      margin-top: 7.5px;
+      margin-right: 20px;
+      height: 40px;
+      font-size: 2em;
+      display: inline-block;
+      color: $milk;
+    }
+    .off {
+      cursor: pointer;
+      margin-top: 7.5px;
+      margin-left: 20px;
+      height: 40px;
+      font-size: 2em;
+      display: inline-block;
+      -webkit-text-stroke: 0.5px $milk;
+      color: $steel;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    .cardContainer {
+      min-width: 0;
+      width: 240px;
+      .flex-container {
+        float: left;
+        display: block;
+        .link-wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          padding: none;
+          max-width: 250px;
+          margin-bottom: 10px;
+          &.all {
+          max-width: 250px;
+          border-style: solid;
+          border-color: $milk;
+					border-top-width: 0px;
+					border-radius: 0.5px;
+          border-bottom-width: 2.5px;
+          border-right-width: 0px;
+          border-left-width: 0px;
+          }
+          &.else {
+          max-width: 250px;
+          border-style: none;
+          border-top-width: 0px;
+          border-bottom-width: 0px;
+          border-right-width: 0px;
+          border-left-width: 0px;
+          }
+          .room {
+            user-select: none;
+            margin: auto;
+            padding: none;
+            text-align: center;
+            max-width: 250px;
+            border-style: none;
+            border-top-width: 0px;
+            border-bottom-width: 0px;
+            border-right-width: 0px;
+            border-left-width: 0px;
+          }
+        }
+      }
+    }
+    .allLights {
+      max-width: 220px;
+      margin: auto;
+      border-style: none;
+    }
+  }
+}
